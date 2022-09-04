@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Website 9</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/airplane.jpg" type="image/x-icon">
+
+</head>
+<body>
+	<header>
+		<a href="#" class="logo">Traveling Around The World</a>
+
+		<ul class="navlist">
+			<li><a href="#home">Home</a></li>
+			<li><a href="#featured">Maps</a></li>
+			<li><a href="#new">Attractions</a></li>
+			<li><a href="#brand">Partnerships</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+
+		<div class="header-icons">
+			<a href="#"><i class='bx bx-shopping-bag'></i></a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+
+	<section class="home" id="home">
+		<div class="home-text">
+			<h1>Venture to <br><span> Different Places</span></h1>
+			<p>Don't waste time and come have fun!</p>
+			<a href="#" class="btn">View More</a>
+		</div>
+	</section>
+
+	<section class="featured" id="featured">
+		<div class="center-text">
+			<br><br>
+			<h2>Where do you live?</h2>
+		</div>
+
+		<div class="featured-content">
+			<div class="center-text"><p><h3> <i>Here, putting your information, it will 
+				be easier for us to calculate an interactive route full of news for you as far as you want!</h3></p>
+			<br><i id="demo">Click the button to get your location</i></p></div>
+			<button onclick="getLocation()"><div class="btnn"> Click Here</div></button>
+			<div id="mapholder"></div>
+			<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+			<script>
+			var x=document.getElementById("demo");
+			function getLocation()
+			  {
+			  if (navigator.geolocation)
+				{
+				navigator.geolocation.getCurrentPosition(showPosition,showError);
+				}
+			  else{x.innerHTML="Geolocalização não é suportada nesse browser.";}
+			  }
+			 
+			function showPosition(position)
+			  {
+			  lat=position.coords.latitude;
+			  lon=position.coords.longitude;
+			  latlon=new google.maps.LatLng(lat, lon)
+			  mapholder=document.getElementById('mapholder')
+			  mapholder.style.height='250px';
+			  mapholder.style.width='500px';
+			 
+			  var myOptions={
+			  center:latlon,zoom:14,
+			  mapTypeId:google.maps.MapTypeId.ROADMAP,
+			  mapTypeControl:false,
+			  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+			  };
+			  var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+			  var marker=new google.maps.Marker({position:latlon,map:map,title:"Você está Aqui!"});
+			  }
+			 
+			function showError(error)
+			  {
+			  switch(error.code)
+				{
+				case error.PERMISSION_DENIED:
+				  x.innerHTML="Usuário rejeitou a solicitação de Geolocalização."
+				  break;
+				case error.POSITION_UNAVAILABLE:
+				  x.innerHTML="Localização indisponível."
+				  break;
+				case error.TIMEOUT:
+				  x.innerHTML="O tempo da requisição expirou."
+				  break;
+				case error.UNKNOWN_ERROR:
+				  x.innerHTML="Algum erro desconhecido aconteceu."
+				  break;
+				}
+			  }
+			</script>
+			
+			
+
+	</section>
+	
+
+	<section class="cta">
+		<div class="cta-text">
+			
+			<h4>Let's Go <br> With Us </h4>
+			<a href="#" class="btn">Piece Now</a>
+		</div>
+	</section>
+
+	<section class="new" id="new">
+		<div class="center-text">
+			<br><br>
+			<h2>Attractions</h2>
+		</div>
+
+		<div class="new-content">
+			<div class="box">
+				<img src="img/pppp.jpg">
+				<h5>Amusement Park</h5>
+			</div>
+
+			<div class="box">
+				<img src="img/bar.jpg">
+				<h5>Bars</h5>
+				
+			</div>
+
+			<div class="box">
+				<img src="img/aqua.jpg">
+				<h5>Water Park</h5>
+				
+			</div>
+
+			<div class="box">
+				<img src="img/res.jpg">
+				<h5>Restaurant</h5>
+			</div>
+
+		</div>
+	</section>
+<br><br><br>
+
+	<section class="brand" id="brand">
+	
+		<div class="brand-content">
+			<h2><i>Partnerships:</i></h2>
+			<div class="main">
+				<img src="img/a.jpg">
+			</div>
+
+			<div class="main">
+				<img src="img/l.jpg">
+			</div>
+
+			<div class="main">
+				<img src="img/cvc.jpg">
+			</div>
+
+			<div class="main">
+				<img src="img/g.jpg.crdownload">
+			</div>
+		</div>
+	</section>
+<br><br>
+	<section class="contact" id="contact">
+		<div class="main-contact">
+			<h3>Traveling Around Tha World</h3>
+			<h5>Let's Connect With Us</h5>
+			<div class="icons">
+				<a href="#"><i class='bx bxl-facebook-square' ></i></a>
+				<a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+				<a href="#"><i class='bx bxl-twitter' ></i></a>
+			</div>
+		</div>
+
+		<div class="main-contact">
+			<h3>Explore</h3>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#featured">Maps</a></li>
+			<li><a href="#new">Attractions</a></li>
+			<li><a href="#brand">Partnerships</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</div>
+
+		<div class="main-contact">
+			<h3>Our Services</h3>
+			<li><a href="#">Trips Abroad</a></li>
+			<li><a href="#">Trips through Brazil</a></li>
+		</div>
+
+		<div class="main-contact">
+			<h3>Address</h3>
+			<li><a href="#">Rua Waldemar Carlos Pereira, número 520</a></li>
+			<li><a href="#">Rua Americana, número 400</a></li>
+			<li><a href="#">Avenida Alencar de Oliveira, número 230</a></li>
+			<li><a href="#">Travessa Carlos de Campos, número 180</a></li>
+			<li><a href="#">. . .</a></li>
+		</div>
+
+	</section>
+
+	<div class="last-text">
+		<p>Copyright © 2022 All rights reserved</p>
+	</div>
+
+	<a href="#" class="top"><i class='bx bx-up-arrow-alt' ></i></a>
+
+
+	<script src="https://unpkg.com/scrollreveal"></script>
+
+	<script src="js/script.js"></script>
+	
+</body>
+</html>
